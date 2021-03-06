@@ -1,0 +1,39 @@
+﻿
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <environment include="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    </environment>
+    <environment exclude="Development">
+        <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    </environment>
+    <link href="~/css/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <title>ShopApp</title>
+</head>
+<body>
+    <partial name="_navbar" />
+    <div class="container pt-100 mb-5">
+        @if (TempData["message"]!=null)
+        {
+        <partial name="_resultmessage" model="@(TempData.Get<ResultMessage>("message"))"     />
+        }
+        
+        @RenderBody()
+    </div>
+    <environment>
+        <script href="/lib/jquery/dist/jquery.min.js"></script>
+        <script href="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+        <script href="/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    </environment>
+   
+    @RenderSection("Scripts", false)
+
+</body>
+</html>
