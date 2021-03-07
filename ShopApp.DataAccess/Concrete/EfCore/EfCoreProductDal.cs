@@ -52,6 +52,7 @@ namespace ShopApp.DataAccess.Concrete.EfCore
         {
             using (var context = new ShopContext())
             {
+                //Lazy Loading yönt. ile aynı anda birden fazla sorgu gönderdik ve bu sayede hem product a hemde productcategories e aynı anda ulaştık.
                 return context.Products.Where(i => i.Id == id)
                                        .Include(i => i.ProductCategories)
                                        .ThenInclude(i => i.Category)
