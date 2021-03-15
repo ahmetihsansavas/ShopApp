@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace ShopApp.WebUI.TagHelpers
 {
+//paging islemi için ASP.Net Core da ki TagHelper yapısından yardım alıyoruz.
     [HtmlTargetElement("div" ,Attributes ="page-model")]
     public class PageLinkTagHelper : TagHelper
     {
